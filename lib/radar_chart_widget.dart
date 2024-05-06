@@ -5,8 +5,8 @@ import 'axis.dart';
 import 'radar_data_sets.dart';
 /// 雷达图
 class RadarChartWidget extends StatefulWidget {
-  RadarDataSets dataSets;
-  RadarChartWidget({super.key,
+  final RadarDataSets dataSets;
+  const RadarChartWidget({super.key,
     required this.dataSets,
   });
   @override
@@ -343,29 +343,29 @@ class RadarPainter extends CustomPainter {
         if (!filling && (axis.min == null || axis.max == null)) {
           fillMinAndMaxForAxis(axis, atIndex: j);
         }
-        Offset lineI_PointJ = center;
+        Offset lineIPointJ = center;
         if (j >= polygon.valueList.length) {/// 补足该点
           /// 第j个点在原点
         } else if (axis.min == null || axis.max == null) {/// 填充axis的min和max后，仍可能为空。
           /// 第j个点在原点
         } else if (axis.min! >= axis.max!) {/// 通常是min==max的非正常情况
           /// 第j个点在轴的最远端
-          lineI_PointJ = toRectangularPoint(radius, j * perAngle, offset);
+          lineIPointJ = toRectangularPoint(radius, j * perAngle, offset);
         } else {
           final range = axis.max! - axis.min!;
           final value = polygon.valueList[j];
           final percent = (value - axis.min!) / range;
           var convertRadius = percent * radius;
-          lineI_PointJ = toRectangularPoint(convertRadius, j * perAngle, offset);
+          lineIPointJ = toRectangularPoint(convertRadius, j * perAngle, offset);
         }
         if (j == 0) {
-          path.moveTo(lineI_PointJ.dx, lineI_PointJ.dy);
-          polygonPoints.add(lineI_PointJ);
+          path.moveTo(lineIPointJ.dx, lineIPointJ.dy);
+          polygonPoints.add(lineIPointJ);
         } else {
-          path.lineTo(lineI_PointJ.dx, lineI_PointJ.dy);
-          polygonPoints.add(lineI_PointJ);
+          path.lineTo(lineIPointJ.dx, lineIPointJ.dy);
+          polygonPoints.add(lineIPointJ);
         }
-        canvas.drawCircle(lineI_PointJ, dataSets.polygonStyle.joinRadius, polygonPointPaint..color = polygon.color);
+        canvas.drawCircle(lineIPointJ, dataSets.polygonStyle.joinRadius, polygonPointPaint..color = polygon.color);
       }
       path.close();
       canvas.drawPath(path, polygonLinePaint..color = polygon.color);

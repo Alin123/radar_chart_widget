@@ -1,6 +1,6 @@
 name: radar_chart_widget
 description: Pure dart widget to draw a interactive radar chart.
-version: 1.0.0
+version: 1.0.1
 homepage: https://github.com/Alin123/radar_chart_widget.git
 
 environment:

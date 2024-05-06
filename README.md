@@ -23,7 +23,7 @@ and the Flutter guide for
 ## Install
 ```
 dependencies:
-  radar_chart_widget:
+  radar_chart_widget: ^1.0.1
 ```
 ## How to use
 简单数据展示参考example/lib/radar_chart_page.dart。
