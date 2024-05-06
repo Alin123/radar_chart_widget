@@ -16,6 +16,7 @@ and the Flutter guide for
 展示一个雷达图（n芒星图）。
 ![六芒星](pictures/dataShow.png)
 ![六芒星](pictures/colorful.png)
+
 交互式的雷达图：可点击轴标题，多边形上的点。
 ![六芒星](pictures/interactive.gif)
 
@@ -26,6 +27,7 @@ dependencies:
 ```
 ## How to use
 简单数据展示参考example/lib/radar_chart_page.dart。
+
 带有交互的参考example/lib/interactive_radar_chart_page.dart。
 
 
